@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storytelling</title>
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="storytelling.css">
+
+    </head>
+
+    <body>
+
+ <div id="page-transition" class="is-closing">
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+</div>
+
+  <!-- ✅ HOMEPAGE-STYLE NAVIGATION -->
+<nav class="lux-nav">
+   <a href="index.html" class="lux-logo">
+    <img src="logos/bb.png" alt="Breakbox">
+</a>
+
+
+
+  <div class="lux-menu-icon" id="luxMenuIcon">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ✅ FULL-SCREEN MENU -->
+<div class="lux-menu-overlay" id="luxMenuOverlay">
+
+       <div class="lux-social">
+   <a href="#" aria-label="Instagram">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+  <rect x="2" y="2" width="20" height="20" rx="5" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="12" cy="12" r="5" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="17" cy="7" r="1.3" fill="#ffffff"/>
+</svg>
+</a>
+
+
+    <a href="#" aria-label="X"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M18.9 1.8h3.6l-7.9 9 9.3 12.3h-7.2l-5.6-7.4-6.4 7.4h-3.6l8.4-9.6-7.9-10.5h7.4l5 6.6 5.9-6.6z"/></svg></a>
+
+    <a href="#" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M22.676 0h-21.352c-.733 0-1.324.591-1.324 1.324v21.352c0 .733.591 1.324 1.324 1.324h11.495v-9.294h-3.123v-3.622h3.123v-2.671c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.313h3.587l-.467 3.622h-3.12v9.294h6.116z"/></svg></a>
+
+    <a href="#" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.375c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.375h-3v-5.5c0-1.379-1.121-2.5-2.5-2.5s-2.5 1.121-2.5 2.5v5.5h-3v-10h3v1.375c.621-1.088 1.854-1.875 3.25-1.875 2.071 0 3.75 1.679 3.75 3.75v6.75z"/></svg></a>
+</div>
+
+  <!-- TOP-LEFT LOGO -->
+  <div class="lux-menu-logo">
+    <img src="logos/bb.png" alt="Breakbox" >
+  </div>
+
+  <!-- CLOSE BUTTON -->
+  <div class="lux-close" id="luxClose">
+    <svg viewBox="0 0 24 24">
+      <line x1="5" y1="5" x2="19" y2="19"/>
+      <line x1="19" y1="5" x2="5" y2="19"/>
+    </svg>
+  </div>
+
+  <!-- TWO-COLUMN MENU -->
+ <div class="lux-menu-columns">
+    <!-- LEFT COLUMN -->
+    <div class="lux-col">
+          <a href="storytelling.html" class="lux-menu-link current" data-page="storytelling">storytelling</a>
+       <a href="index.html" class="lux-menu-link" data-page="home">home</a>
+                <a href="about.html" class="lux-menu-link">about</a>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="lux-col">
+      <a href="design.html" class="lux-menu-link" data-page="design">design</a>
+      <a href="consulting.html" class="lux-menu-link" data-page="consulting">consulting</a>
+      <a href="contact.html" class="lux-menu-link" data-page="contact">contact</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+    <div class="page" id="storytelling">
+        <div class="storytelling-hero">
+<canvas id="storyLava"></canvas>
+            <h1>Storytelling</h1>
+            <p>Where music, video, spoken word, and writing converge</p>
+            
+            <div class="hero-arrow">
+        <span>↓</span>
+    </div>
+        </div>
+
+    
+
+        <div class="story-section-wrapper">
+
+        <div class="storytelling-tabs">
+            <button class="tab-btn active" data-tab="Production">Production</button>
+            <button class="tab-btn" data-tab="Poetry">Poetry</button>
+            <button class="tab-btn" data-tab="Performance">Performance</button>
+             <button class="tab-btn" data-tab="Education">Education</button>
+                 <button class="tab-btn" data-tab="Publications">Publications</button>
+        </div>
+        
+
+      <div class="storytelling-content">
+
+    <div class="story-grid active" id="Production">
+     <div class="story-card video-trigger" data-video-id="_OTe3Nh_5r0">
+    <div class="story-content-wrapper"> 
+        <img src="https://img.youtube.com/vi/_OTe3Nh_5r0/mqdefault.jpg" alt="Echoes of Home" class="story-thumbnail">
+        
+        <div class="play-icon">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="white">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+        </div>
+        
+        <div class="story-info">
+            <div class="category">Mad Black Joy | Featured Subject</div>
+            <h3>#Blackgirlmagic | Featured Subject, Producer, Director</h3>
+            <p></p>
+        </div>
+    </div>
+    <iframe class="card-video-player" width="100%" height="100%" src="about:blank" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+        
+     
+  
+    </div>
+    
+    <div class="story-grid" id="Poetry">
+            <div class="story-card video-trigger" data-video-id="zmTRSpuSEa4">
+            <div class="story-content-wrapper">
+          <img src="https://img.youtube.com/vi/zmTRSpuSEa4/mqdefault.jpg" alt="Echoes of Home" class="story-thumbnail">
+                <div class="story-info">
+                    <div class="category"></div>
+                    <h3>Koukou juju | Featured Poet, Vocalist</h3>
+                    <p></p>
+                </div>
+            </div>
+            <iframe class="card-video-player" width="100%" height="100%" src="about:blank" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      
+      
+    </div>
+
+    <div class="story-grid" id="Performance">
+            <div class="story-card video-trigger" data-video-id="mmbLKLUWAAY">
+            <div class="story-content-wrapper">
+          <img src="https://img.youtube.com/vi/mmbLKLUWAAY/mqdefault.jpg" alt="Echoes of Home" class="story-thumbnail">
+                <div class="story-info">
+                    <div class="category"></div>
+                    <h3>Tiny Desk Act 1 2</h3>
+                    <p></p>
+                </div>
+            </div>
+            <iframe class="card-video-player" width="100%" height="100%" src="about:blank" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      
+     
+    </div>
+
+
+    <div class="story-grid" id="Education">
+            <div class="story-card video-trigger" data-video-id="8lbBS9WXNGk">
+            <div class="story-content-wrapper">
+          <img src="https://img.youtube.com/vi/8lbBS9WXNGk/mqdefault.jpg" alt="Echoes of Home" class="story-thumbnail">
+                <div class="story-info">
+                    <div class="category">Roots Run Deep | Producer, Director</div>
+                    <h3>Weapons of Mass Construction | Producer, Director</h3>
+                    <p>Weapons of Mass Construction examines how language, literacy and culture are the fibers of our memory. Jamillah Hasan-Oliver explores the human craving for stories to feed our understanding and nourish our capacity for compassion.</p>
+                </div>
+            </div>
+            <iframe class="card-video-player" width="100%" height="100%" src="about:blank" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+ <div class="story-card video-trigger" data-video-id="BTovvNWmgq0">
+            <div class="story-content-wrapper">
+          <img src="https://img.youtube.com/vi/BTovvNWmgq0/mqdefault.jpg" alt="Echoes of Home" class="story-thumbnail">
+                <div class="story-info">
+                    <div class="category"></div>
+                    <h3>Fantastic Voyage BreakBox Day Video</h3>
+                    <p></p>
+                </div>
+            </div>
+            <iframe class="card-video-player" width="100%" height="100%" src="about:blank" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+     
+    </div>
+<!-- PUBLICATIONS SECTION -->
+<div id="Publications" class="pub-section story-grid">
+
+    <!-- CENTERED HEADING -->
+    <h2 class="pub-main-heading">100 BLACK VOICES</h2>
+
+    <p class="pub-article">
+       Ashé Magazine, launched in 2018, was created to give Black girls an authentic platform for their stories and 
+       perspectives, addressing the lack of representation in mainstream media. Now in its sixth year, Ashé has expanded its mission to include gender-expansive youth (boys and nonbinary youth), releasing five issues. It remains a space of inclusivity, celebrating diverse Black experiences and focusing on African Diasporic experience, Style, Fashion, and Health and Wellness. Ashé empowers marginalized voices, 
+       challenges societal norms, and promotes positive change through representation, community, and resilience.   </p>
+
+    <!-- GRID -->
+    <div class="pub-grid"> <!-- changed from story-grid -->
+        
+        <div class="story-card pub-card">
+            <div class="pub-card">
+                <img src="logos/pub3.jpg" class="story-thumbnail pub-img">
+                <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" class="zoom-icon">
+            </div>
+        </div>
+
+        <div class="story-card pub-card">
+            <div class="pub-card">
+                <img src="logos/pub2.jpg" class="story-thumbnail pub-img">
+                <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" class="zoom-icon">
+            </div>
+        </div>
+
+        <div class="story-card pub-card">
+            <div class="pub-card">
+                <img src="logos/pub1.jpg" class="story-thumbnail pub-img">
+                <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" class="zoom-icon">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+          <footer>
+        <p>&copy; 2025 Breakbox Thoughts Studio LLC. All rights reserved.</p>
+        <p>Crafted with purpose and passion</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuLinks = document.querySelectorAll('.menu-links a');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageName).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            menuToggle.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        }
+
+      menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuOverlay.classList.remove('active');
+        menuToggle.classList.remove('active');
+        // let the normal <a href="..."> navigation occur
+    });
+});
+
+
+   tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const tabName = btn.getAttribute('data-tab');
+
+        // Hide all story grids
+        document.querySelectorAll('.story-grid').forEach(grid => grid.classList.remove('active'));
+
+        // Hide Publications unless selected
+        const publicationsContainer = document.getElementById('Publications');
+        if (tabName === 'Publications') {
+            publicationsContainer.classList.add('active');
+        } else {
+            publicationsContainer.classList.remove('active');
+            // Show the selected tab grid
+            const grid = document.getElementById(tabName);
+            if (grid) grid.classList.add('active');
+        }
+    });
+});
+
+
+
+        function createParticles() {
+            const hero = document.querySelector('.hero');
+            if (!hero) return;
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 5 + 8) + 's';
+                const colors = ['#FFB5A7', '#9B5DE5', '#C4B5FD'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                hero.appendChild(particle);
+            }
+        }
+
+        createParticles();
+    </script>
+
+
+<script>
+/* STORYTELLING LAVA BACKGROUND */
+const c = document.getElementById("storyLava"),
+      x = c.getContext("2d");
+
+function size() {
+    c.width = innerWidth;
+    c.height = innerHeight * 0.65; /* just hero area */
+}
+size();
+onresize = size;
+
+let t = 0;
+function draw() {
+    const w = c.width, h = c.height;
+    const img = x.createImageData(w, h);
+    const d = img.data;
+
+    for (let i = 0; i < d.length; i += 4) {
+        const px = (i/4) % w;
+        const py = Math.floor((i/4)/w);
+
+        const nx = px / w - 0.5;
+        const ny = py / h - 0.5;
+
+        /* Lava movement pattern */
+        const v =
+            Math.sin(nx * 4 + t * 0.009) +
+            Math.sin(ny * 5 + t * 0.015) +
+            Math.sin((nx + ny) * 6 + t * 0.012);
+
+        /* Color channels */
+        const dreamyBlue = 40 + v * 70;  /* blue */
+        const whiteGlow = 70 + v * 55;   /* soft white */
+        const blackLava = 5 + v * 18;    /* gentle black veins */
+
+        d[i]   = blackLava;      /* red channel (dark) */
+        d[i+1] = dreamyBlue;     /* green channel (blue tint) */
+        d[i+2] = whiteGlow;      /* blue/white channel */
+        d[i+3] = 255;            /* full alpha */
+    }
+
+    x.putImageData(img, 0, 0);
+    t += 1;
+    requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+<script>
+const luxMenuIcon = document.getElementById("luxMenuIcon");
+const luxMenuOverlay = document.getElementById("luxMenuOverlay");
+const luxClose = document.getElementById("luxClose");
+
+function openMenu(){
+  luxMenuIcon.classList.add("active");
+  luxMenuOverlay.classList.add("active");
+}
+function closeMenu(){
+  luxMenuIcon.classList.remove("active");
+  luxMenuOverlay.classList.remove("active");
+}
+
+luxMenuIcon.addEventListener("click", openMenu);
+luxClose.addEventListener("click", closeMenu);
+</script>
+
+<script>
+    // --- Video Player and Tab Control Logic (Card-Specific) ---
+
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const YOUTUBE_BASE_URL = 'https://www.youtube.com/embed/';
+
+    // Function to stop and reset ALL videos 
+    function stopAllVideos() {
+        document.querySelectorAll('.story-card.active-video').forEach(activeCard => {
+            const player = activeCard.querySelector('.card-video-player');
+            
+            // 1. Stop playback
+            player.src = 'about:blank'; 
+            
+            // 2. Reset the card state
+            activeCard.classList.remove('active-video');
+        });
+    }
+
+    // --- NEW: Function to check and apply single-card layout ---
+    function checkSingleCardLayout(gridElement, tabName) {
+        // Publications has an inner grid (`.pub-grid`) and is handled differently by CSS
+        if (tabName === 'Publications') return; 
+
+        // Count direct children that are story cards
+        const cardCount = gridElement.querySelectorAll(':scope > .story-card, :scope > .video-trigger').length;
+
+        if (cardCount === 1) {
+            gridElement.classList.add('single-card-layout');
+        } else {
+            // Important: Always remove the class if more than one card exists
+            gridElement.classList.remove('single-card-layout');
+        }
+    }
+    // -----------------------------------------------------------
+
+    // --- Video Click Handlers ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const videoTriggers = document.querySelectorAll('.video-trigger');
+        
+        videoTriggers.forEach(card => {
+            card.addEventListener('click', function() {
+                // If the card is already active, do nothing
+                if (this.classList.contains('active-video')) return; 
+
+                // 1. Stop all other videos before starting a new one
+                stopAllVideos(); 
+                
+                const videoId = this.dataset.videoId;
+                const iframe = this.querySelector('.card-video-player');
+                
+                const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&showinfo=0&iv_load_policy=3`;
+                
+                iframe.src = embedUrl;
+                this.classList.add('active-video');
+            });
+        });
+
+        // Add the single-card check for the initial active grid on page load
+        const initialGrid = document.querySelector('.story-grid.active');
+        if (initialGrid) {
+            checkSingleCardLayout(initialGrid, initialGrid.id);
+        }
+    });
+
+
+    // --- Tab Switching Logic ---
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const tabName = btn.getAttribute('data-tab');
+
+            // 1. Hide/reset all grids
+            document.querySelectorAll('.story-grid').forEach(grid => {
+                grid.classList.remove('active');
+                grid.classList.remove('single-card-layout'); // Reset custom layout
+            });
+            
+            // 2. Activate the correct grid
+            const activeGrid = document.getElementById(tabName);
+            
+            if (activeGrid) {
+                activeGrid.classList.add('active');
+                
+                // 🛑 Apply the single-card layout check 🛑
+                checkSingleCardLayout(activeGrid, tabName);
+            }
+
+            // 3. Stop the video when switching tabs
+            stopAllVideos();
+        });
+    });
+
+</script>
+
+<script>
+    // ✅ NEW: CURTAIN TRANSITION LOGIC
+
+    const transitionContainer = document.getElementById('page-transition');
+    // 💡 ADJUSTED: Changed from 1200 to 700 for a faster, snappier feel
+    const transitionDuration = 700; // Matches the CSS transition time (0.7s)
+
+    // Helper function used in link click handler (assuming user's menu logic is globally available)
+    function closeMenu(){
+        const luxMenuIcon = document.getElementById("luxMenuIcon");
+        const luxMenuOverlay = document.getElementById("luxMenuOverlay");
+        luxMenuIcon.classList.remove("active");
+        luxMenuOverlay.classList.remove("active");
+    }
+
+    // --- 1. CLOSING (Intercepts link clicks) ---
+    function handleLinkClick(e) {
+        let targetLink = e.target.closest('a');
+
+        // Check if it's a valid link and not an external URL or anchor link
+        if (targetLink && targetLink.hostname === window.location.hostname && targetLink.href.endsWith('.html') && targetLink.href !== window.location.href) {
+            e.preventDefault(); // Stop the browser from navigating immediately
+
+            const destination = targetLink.href;
+            
+            closeMenu(); // Close menu if active
+
+            // Trigger the CLOSING animation (curtains move IN)
+            transitionContainer.classList.remove('is-open', 'is-opening');
+            transitionContainer.classList.add('is-closing');
+            
+            // Wait for the animation to nearly complete, then redirect
+            setTimeout(() => {
+                window.location.href = destination;
+            }, transitionDuration * 0.95); // 95% of the transition time
+        }
+    }
+
+    // Attach handler to all internal links
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', handleLinkClick);
+    });
+
+
+    // --- 2. OPENING (Triggers on page load) ---
+    document.addEventListener('DOMContentLoaded', () => {
+        // When the page loads, the container is assumed to be 'is-closing' (fully covering the screen)
+        
+        // Wait a tiny moment for the browser to ensure content is ready
+        setTimeout(() => {
+            // Trigger the OPENING animation (curtains move OUT)
+            transitionContainer.classList.remove('is-closing');
+            transitionContainer.classList.add('is-opening');
+            
+            // After the animation finishes, set to fully open/hidden
+            setTimeout(() => {
+                transitionContainer.classList.remove('is-opening');
+                transitionContainer.classList.add('is-open'); // Hides the container entirely
+            }, transitionDuration); 
+        }, 100); // Short delay to let the initial state render
+    });
+
+</script>
+
+<!-- FULLSCREEN IMAGE VIEWER -->
+<div id="imgViewer" class="img-viewer">
+    <span class="close-viewer">&times;</span>
+    <img id="imgViewerImg" src="">
+</div>
+
+
+<script>
+  // Select the viewer and its elements
+  const imgViewer = document.getElementById('imgViewer');
+  const viewerImg = document.getElementById('imgViewerImg');
+  const closeViewer = document.querySelector('.close-viewer');
+
+  // Open viewer when a publication image is clicked
+  document.querySelectorAll('.pub-img').forEach(img => {
+      img.addEventListener('click', () => {
+          viewerImg.src = img.src;      // Set the clicked image
+          imgViewer.classList.add('active'); // Show viewer
+      });
+  });
+
+  // Close viewer when close button is clicked (FIXED)
+ closeViewer.addEventListener('click', (e) => {
+    e.stopPropagation(); // <-- CRITICAL: Stops the click from interfering with the container's click handler
+    imgViewer.classList.remove('active');
+    viewerImg.src = ''; // optional: clear image when closing
+});
+
+  // Close viewer when clicking outside the image (on the backdrop)
+  imgViewer.addEventListener('click', (e) => {
+      // Only close if the click target is the viewer div itself (the dark backdrop)
+      if (e.target === imgViewer) {
+        imgViewer.classList.remove('active');
+      }
+  });
+</script>
+
+
+
+
+    </body>
+    </html> 

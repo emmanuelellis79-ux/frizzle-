@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breakbox Studio Flow</title>
+
+  <style>
+/* ────────────────────────────────────── BASIC RESET & PAGE ────────────────────────────────────── */
+html,body{margin:0;height:100%;overflow:hidden;
+    background:#000;
+    color:#fff;
+  font-family: 'Nunito', 'Work Sans', 'Gill Sans Nova', 'Gill Sans', sans-serif;
+
+    position:relative}
+
+/* ────────────────────────────────────── TITLE (center) ────────────────────────────────────── */
+h1,p{position:relative;z-index:10;text-align:center;margin-top:0}
+h1{font-size:3rem;font-weight:300;letter-spacing:2px;text-transform:lowercase;color:#c8ffe0;margin-top:8%}
+p{opacity:.6;margin-top:.5rem}
+
+/* ────────────────────────────────────── TOP NAVBAR ────────────────────────────────────── */
+.lux-nav{position:fixed;
+    top:0;left:0;width:100%;
+    padding:0.8rem 5%;
+    display:flex;justify-content:space-between;
+    align-items:center;z-index:9999;
+    box-sizing:border-box}
+
+/* LOGO */
+.lux-logo{ font-family: 'Nunito', 'Work Sans', 'Gill Sans Nova', 'Gill Sans', sans-serif;
+font-size:2rem;font-weight:700;letter-spacing:3px;
+background:linear-gradient(120deg,#c8ffe0,#9fffd4);
+ margin-top: 0.45rem !important;
+-webkit-background-clip:text;background-clip:text;
+color:transparent;cursor:pointer;z-index:10001;position:relative}
+
+
+.lux-logo img {
+    height: 130px;        /* increase size */
+    width: auto;
+    object-fit: contain;
+    filter: invert(1);   /* PURE WHITE ONLY */
+}
+
+/* RIGHT LINKS */
+.nav-links{
+    display:flex;
+    gap:2.5rem;
+    list-style:none;
+     margin-left: -2rem !important;  
+    margin:0;
+    padding:0;
+    z-index:10001;
+    position:relative;
+  
+   margin-top: -50px !important; }
+.nav-links a{color:#fff;font-size:0.9rem;letter-spacing:1px; font-family: 'Nunito', 'Work Sans', 'Gill Sans Nova', 'Gill Sans', sans-serif;
+text-decoration:none;opacity:.85;transition:.3s}
+.nav-links a:hover{opacity:1;text-shadow:0 0 12px #9fffd4;transform:translateY(-2px)}
+
+/* MENU ICON */
+.lux-menu-icon{
+    width:30px;
+    height:20px;
+    display:flex;flex-direction:column;
+    justify-content:space-between;
+    cursor:pointer;position:relative;
+    z-index:10001;transition:all .3s ease;
+    margin-top: -40px;   /* MOVE UP */
+  }
+.lux-menu-icon span{
+    width:100%;
+    height:3px;
+    background:#fff;
+    border-radius:3px;
+    transition:all .3s ease;
+    display:block}
+
+
+.lux-menu-icon.active span:nth-child(1){transform:translateY(13px) rotate(45deg)}
+.lux-menu-icon.active span:nth-child(2){opacity:0}
+.lux-menu-icon.active span:nth-child(3){transform:translateY(-13px) rotate(-45deg)}
+
+/* ────────────────────────────────────── FULL-SCREEN MENU ────────────────────────────────────── */
+.lux-menu-overlay{
+  position:fixed;
+  inset:0;
+  background:#000 !important; /* TRUE BLACK */
+  backdrop-filter:none !important;
+  z-index:10000;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .5s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem 5%;
+}
+
+.lux-menu-overlay.active{opacity:1;pointer-events:auto}
+
+/* inner wrapper – logo + columns */
+.lux-menu-inner{
+  display:flex;width:100%;max-width:1600px;gap:12vw;
+  align-items:flex-start;justify-content:space-between;
+}
+
+/* LOGO – top-left when menu open */
+.lux-menu-logo{
+  position:absolute;top:0.5rem;left:5%;z-index:10002;
+  opacity:0;transform:translateY(-20px);
+  transition:opacity .4s .2s,transform .4s .2s;
+  
+}
+.lux-menu-overlay.active .lux-menu-logo{opacity:1;transform:translateY(0)}
+
+/* CLOSE BUTTON – top-right circle with X */
+
+/* ✅ BEAUTIFUL MINIMAL "X" — no circle */
+/* ✅ Cinematic Neon X Button */
+.lux-close {
+  position: absolute;
+  top: 2rem;
+  right: 5%;
+  z-index: 10002;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(.8);
+  transition: all .35s ease;
+}
+
+.lux-menu-logo img {
+    height: 130px !important;
+    filter: invert(1) !important; /* PURE white, no glow */
+}
+
+.lux-close svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px rgba(200,255,224,0.8));
+  transition: stroke .3s ease, transform .3s ease, filter .3s ease;
+}
+
+.lux-close:hover svg {
+  stroke: #c8ffe0;
+  filter: drop-shadow(0 0 12px #9fffd4);
+  transform: scale(1.15) rotate(8deg);
+}
+
+.lux-menu-overlay.active .lux-close {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+/* ───── TWO EQUAL COLUMNS – SAME SIZE LINKS ───── */
+.lux-menu-columns{
+  flex:1;
+  display:flex;
+  gap:8vw;
+}
+.lux-col{
+  flex:1;display:flex;flex-direction:column;gap:0.6rem;
+}
+.lux-menu-link{
+  position:relative;
+ font-family: 'Nunito', 'Work Sans', 'Gill Sans Nova', 'Gill Sans', sans-serif;
+  font-size:clamp(2.5rem,5vw,5.4rem);
+  font-weight:300;
+  color:#fff;
+  letter-spacing:.4rem;
+  text-decoration:none;
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeUp .8s forwards;
+  padding-left:1.5rem;               /* space for arrow */
+}
+
+/* stagger animation */
+.lux-col:nth-child(1) .lux-menu-link:nth-child(1){animation-delay:.2s}
+.lux-col:nth-child(1) .lux-menu-link:nth-child(2){animation-delay:.35s}
+.lux-col:nth-child(1) .lux-menu-link:nth-child(3){animation-delay:.5s}
+.lux-col:nth-child(2) .lux-menu-link:nth-child(1){animation-delay:.65s}
+.lux-col:nth-child(2) .lux-menu-link:nth-child(2){animation-delay:.8s}
+.lux-col:nth-child(2) .lux-menu-link:nth-child(3){animation-delay:.95s}
+
+/* arrow – hover & current */
+.lux-menu-link::before{
+  content:">";
+  position:absolute;left:0;top:50%;transform:translateY(-50%);
+  font-size:1.8rem;color:#c8ffe0;
+  opacity:0;transition:opacity .3s,transform .3s;
+}
+.lux-menu-link:hover::before,
+.lux-menu-link.current::before{
+  opacity:1;transform:translateY(-50%) translateX(8px);
+}
+
+/* hover effect */
+.lux-menu-link:hover{
+  color:#c8ffe0;
+  text-shadow:0 0 25px #9fffd4;
+  transform:translateX(20px);
+  transition:.4s;
+}
+
+/* fade-up */
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* ────────────────────────────────────── CANVAS, OVAL, VIDEOS, CENTER TEXT ────────────────────────────────────── */
+canvas{position:absolute;
+    top:0;left:0;
+    z-index:0}
+
+.lava-oval{position:absolute;
+    top:53%;left:50%;transform:translate(-50%,-50%);
+    width:340px;height:500px;border-radius:50%;overflow:hidden;
+    box-shadow:0 0 80px rgba(0,255,180,.2),0 0 150px rgba(0,120,90,.25);
+    z-index:20}
+
+.lava-oval::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,transparent 50%,rgba(0,0,0,.35));z-index:2}
+.lava-oval::after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(45deg,transparent,rgba(255,255,255,.15),transparent);animation:shimmer 4s infinite linear}
+@keyframes shimmer{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.video-slider .slide{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease-in-out}
+.video-slider .slide.active{opacity:1}
+/* =========================================================
+   CENTER TEXT CONTAINER (CRITICAL for positioning)
+========================================================= */
+.center-text {
+    /* Retain original central positioning */
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Ensure all contents are centered horizontally */
+    text-align: center; 
+    z-index: 30;
+    width: 100%; 
+}
+
+/* =========================================================
+   SIGNATURE IMAGE STYLES (Directly targets the <img> tag)
+========================================================= */
+.center-text .signature-image-large {
+    
+    width: 60vw; /* Signature will be 60% of the screen width */
+    max-width: 600px; /* Optional: Sets an absolute maximum size */
+    height: auto; /* Maintain aspect ratio */
+    display: block; 
+    
+    /* Center the image within the .center-text div */
+    margin: 0 auto 0.5rem auto; 
+    
+    /* 2. COLOR: Filter to approximate the desired #c8ffe0 color */
+    filter: invert(70%) sepia(20%) saturate(200%) hue-rotate(80deg) brightness(120%);
+    
+    transition: all 0.3s ease;
+}
+
+/* =========================================================
+   TAGLINE P STYLES
+========================================================= */
+.center-text .signature-tagline {
+    /* Target the new p tag */
+    margin-top: 0.5rem;
+    opacity: 0.6;
+    font-size: 1.1rem;
+    
+    /* Ensure the color matches the original h1 text color */
+    color: #c8ffe0; 
+}
+/* ✅ Social icons centered at bottom of menu */
+.lux-social{
+  position:absolute;
+  bottom:3rem;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:2.5rem;
+  z-index:10002;
+  opacity:0;
+  transition:opacity .5s .4s ease;
+}
+
+.lux-menu-overlay.active .lux-social{
+  opacity:1;
+}
+
+.lux-social a svg{
+  opacity:.8;
+  transition:.25s ease;
+}
+
+.lux-social a:hover svg{
+  opacity:1;
+  transform:scale(1.15);
+}
+
+
+
+/* =========================================================
+   ✅ CURTAIN PAGE TRANSITION STYLES
+   ========================================================= */
+
+#page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10005; 
+    pointer-events: none; 
+    display: flex;
+    overflow: hidden; 
+}
+
+.curtain-left,
+.curtain-right {
+    width: 50vw;
+    height: 100vh;
+    background-color: #000;
+    
+    /* 💡 ADJUSTED: Faster duration and smoother timing function */
+    transition: transform 0.7s cubic-bezier(0.65, 0.05, 0.36, 1); 
+}
+
+/* ---------------------------------------------------------
+   INITIAL/CLOSING STATE: CURTAINS COVER THE SCREEN 
+   --------------------------------------------------------- */
+/* By default, the curtains are fully open (off-screen) */
+.curtain-left {
+    transform: translateX(-100%);
+}
+.curtain-right {
+    transform: translateX(100%);
+}
+
+/* CLOSING: Curtains move to the center to cover the screen */
+#page-transition.is-closing {
+    pointer-events: auto;
+}
+
+#page-transition.is-closing .curtain-left {
+    transform: translateX(0);
+}
+
+#page-transition.is-closing .curtain-right {
+    transform: translateX(0);
+}
+
+/* ---------------------------------------------------------
+   OPENING STATE: CURTAINS MOVE OFF-SCREEN (TO REVEAL NEW PAGE)
+   --------------------------------------------------------- */
+
+#page-transition.is-opening {
+    pointer-events: auto;
+}
+
+#page-transition.is-opening .curtain-left {
+    transform: translateX(-100%);
+}
+
+#page-transition.is-opening .curtain-right {
+    transform: translateX(100%);
+}
+
+/* FINAL STATE: Container is hidden when the animation is complete */
+#page-transition.is-open {
+    display: none;
+}
+
+
+</style>
+</head>
+
+<body>
+
+  <div id="page-transition" class="is-closing">
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+</div>
+
+<!-- TOP NAVBAR -->
+<nav class="lux-nav">
+  <div class="lux-logo"><img src="logos/bb.png" alt="Breakbox"></div>
+  <ul class="nav-links">
+
+        <li><a href="about.html" data-page="About">About</a></li>
+    <li><a href="consulting.html" data-page="Consulting">Consulting</a></li>
+    <li><a href="design.html" data-page="Design">Design</a></li>
+    <li><a href="consulting.html" data-page="Consulting">Consulting</a></li>
+    <li><a href="storytelling.html" data-page="Storytelling">Storytelling</a></li>
+   
+
+  
+  </ul>
+  <div class="lux-menu-icon" id="luxMenuIcon">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- FULL-SCREEN MENU -->
+<div class="lux-menu-overlay" id="luxMenuOverlay">
+
+    <div class="lux-social">
+   <a href="#" aria-label="Instagram">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+  <rect x="2" y="2" width="20" height="20" rx="5" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="12" cy="12" r="5" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="17" cy="7" r="1.3" fill="#ffffff"/>
+</svg>
+</a>
+
+
+    <a href="#" aria-label="X"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M18.9 1.8h3.6l-7.9 9 9.3 12.3h-7.2l-5.6-7.4-6.4 7.4h-3.6l8.4-9.6-7.9-10.5h7.4l5 6.6 5.9-6.6z"/></svg></a>
+
+    <a href="#" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M22.676 0h-21.352c-.733 0-1.324.591-1.324 1.324v21.352c0 .733.591 1.324 1.324 1.324h11.495v-9.294h-3.123v-3.622h3.123v-2.671c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.313h3.587l-.467 3.622h-3.12v9.294h6.116z"/></svg></a>
+
+    <a href="#" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.375c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.375h-3v-5.5c0-1.379-1.121-2.5-2.5-2.5s-2.5 1.121-2.5 2.5v5.5h-3v-10h3v1.375c.621-1.088 1.854-1.875 3.25-1.875 2.071 0 3.75 1.679 3.75 3.75v6.75z"/></svg></a>
+</div>
+
+
+  <!-- LOGO (top-left) -->
+     <a href="index.html" class="lux-logo">
+    <img src="logos/bb.png" alt="Breakbox">
+</a>
+
+  <!-- CLOSE BUTTON (top-right) -->
+<div class="lux-close" id="luxClose">
+  <svg viewBox="0 0 24 24">
+    <line x1="5" y1="5" x2="19" y2="19"/>
+    <line x1="19" y1="5" x2="5" y2="19"/>
+  </svg>
+</div>
+
+
+  
+
+  <!-- TWO EQUAL COLUMNS – SAME SIZE LINKS -->
+  <div class="lux-menu-columns">
+    <!-- LEFT COLUMN -->
+    <div class="lux-col">
+      <a href="home.html" class="lux-menu-link current" data-page="home">home</a>
+        <a href="about.html" class="lux-menu-link">about</a>
+            <a href="storytelling.html" class="lux-menu-link" data-page="storytelling">storytelling</a>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="lux-col">
+      <a href="design.html" class="lux-menu-link" data-page="design">design</a>
+      <a href="consulting.html" class="lux-menu-link" data-page="consulting">consulting</a>
+            <a href="contact.html" class="lux-menu-link" data-page="contact">contact</a>
+     
+    </div>
+  </div>
+</div>
+
+<canvas id="lava"></canvas>
+
+<div class="lava-oval">
+  <div class="video-slider">
+    <video class="slide active" muted playsinline autoplay loop><source src="videos/w.mp4" type="video/mp4"></video>
+    <video class="slide" muted playsinline><source src="videos/natur.mp4" type="video/mp4"></video>
+    <video class="slide" muted playsinline><source src="videos/wate.mp4" type="video/mp4"></video>
+  </div>
+</div>
+
+<div class="center-text">
+    <img src="logos/sig.png" alt="Jamillah Hasan-Oliver" class="signature-image-large">
+    
+    <p class="signature-tagline">vision. sound. energy. collective.</p>
+</div>
+
+<script>
+/* ───── MENU TOGGLE & CLOSE ───── */
+const luxMenuIcon = document.getElementById("luxMenuIcon");
+const luxMenuOverlay = document.getElementById("luxMenuOverlay");
+const luxClose = document.getElementById("luxClose");
+
+function openMenu(){luxMenuIcon.classList.add("active");luxMenuOverlay.classList.add("active")}
+function closeMenu(){luxMenuIcon.classList.remove("active");luxMenuOverlay.classList.remove("active")}
+luxMenuIcon.addEventListener("click", openMenu);
+luxClose.addEventListener("click", closeMenu);
+
+/* ───── CURRENT PAGE INDICATOR ───── */
+const topLinks = document.querySelectorAll(".nav-links a");
+const menuLinks = document.querySelectorAll(".lux-menu-link");
+
+function setCurrent(page){
+  topLinks.forEach(l=>l.classList.toggle("current", l.dataset.page===page));
+  menuLinks.forEach(l=>l.classList.toggle("current", l.dataset.page===page));
+}
+topLinks.forEach(a=>a.addEventListener("click",e=>{
+  e.preventDefault();
+  setCurrent(a.dataset.page);
+  closeMenu();
+}));
+setCurrent("home");   // default
+</script>
+
+<script>
+/* LAVA BACKGROUND */
+const canvas=document.getElementById("lava"),ctx=canvas.getContext("2d");
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
+resize();onresize=resize;
+let t=0;
+function draw(){
+  const w=canvas.width,h=canvas.height;
+  const img=ctx.createImageData(w,h),d=img.data;
+  for(let x=0;x<w;x++)for(let y=0;y<h;y++){
+    const i=(x+y*w)*4;
+    const nx=x/w-.5,ny=y/h-.5;
+    const v=Math.sin(nx*4+t*.010)+Math.sin(ny*5+t*.018)+Math.sin((nx+ny)*6+t*.021);
+    const g=35+v*45,b=35+v*42;
+    d[i]=5;d[i+1]=g;d[i+2]=b;d[i+3]=255;
+  }
+  ctx.putImageData(img,0,0);t+=1;requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+<script>
+    // ✅ NEW: CURTAIN TRANSITION LOGIC
+
+    const transitionContainer = document.getElementById('page-transition');
+    // 💡 ADJUSTED: Changed from 1200 to 700 for a faster, snappier feel
+    const transitionDuration = 700; // Matches the CSS transition time (0.7s)
+
+    // Helper function used in link click handler (assuming user's menu logic is globally available)
+    function closeMenu(){
+        const luxMenuIcon = document.getElementById("luxMenuIcon");
+        const luxMenuOverlay = document.getElementById("luxMenuOverlay");
+        luxMenuIcon.classList.remove("active");
+        luxMenuOverlay.classList.remove("active");
+    }
+
+    // --- 1. CLOSING (Intercepts link clicks) ---
+    function handleLinkClick(e) {
+        let targetLink = e.target.closest('a');
+
+        // Check if it's a valid link and not an external URL or anchor link
+        if (targetLink && targetLink.hostname === window.location.hostname && targetLink.href.endsWith('.html') && targetLink.href !== window.location.href) {
+            e.preventDefault(); // Stop the browser from navigating immediately
+
+            const destination = targetLink.href;
+            
+            closeMenu(); // Close menu if active
+
+            // Trigger the CLOSING animation (curtains move IN)
+            transitionContainer.classList.remove('is-open', 'is-opening');
+            transitionContainer.classList.add('is-closing');
+            
+            // Wait for the animation to nearly complete, then redirect
+            setTimeout(() => {
+                window.location.href = destination;
+            }, transitionDuration * 0.80); // 95% of the transition time
+        }
+    }
+
+    // Attach handler to all internal links
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', handleLinkClick);
+    });
+
+
+    // --- 2. OPENING (Triggers on page load) ---
+    document.addEventListener('DOMContentLoaded', () => {
+        // When the page loads, the container is assumed to be 'is-closing' (fully covering the screen)
+        
+        // Wait a tiny moment for the browser to ensure content is ready
+        setTimeout(() => {
+            // Trigger the OPENING animation (curtains move OUT)
+            transitionContainer.classList.remove('is-closing');
+            transitionContainer.classList.add('is-opening');
+            
+            // After the animation finishes, set to fully open/hidden
+            setTimeout(() => {
+                transitionContainer.classList.remove('is-opening');
+                transitionContainer.classList.add('is-open'); // Hides the container entirely
+            }, transitionDuration); 
+        }, 100); // Short delay to let the initial state render
+    });
+
+</script>
+
+</body>
+</html>
